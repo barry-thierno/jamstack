@@ -1,21 +1,47 @@
 import React from "react"
-import { Link } from "gatsby"
+import { useStaticQuery } from "gatsby"
+import Layout from "../components/layout/layout"
+import Seo from "../components/seo/seo"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import "./index.scss"
+import Product from "../components/product/product"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const IndexPage = () => {
+  const {
+    allContentfulProduct: { edges: products },
+  } = useStaticQuery(graphql`
+    query MyQuery {
+      allContentfulProduct {
+        edges {
+          node {
+            price
+            title
+            quantity
+            id
+            description
+          }
+        }
+      }
+    }
+  `)
+  console.log(products)
+
+  return (
+    <Layout>
+      <Layout>
+        <Seo title="Home" />
+        <div className="home-container">
+          {/* <Separator title="Les dernières publications" /> */}
+          <section className="last-publications">
+            {products.map(({ node }, index) => (
+              <Product {...node} isMainPublication={index === 0} />
+            ))}
+            test
+          </section>
+        </div>
+      </Layout>
+    </Layout>
+  )
+}
 
 export default IndexPage
