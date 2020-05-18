@@ -7,13 +7,14 @@ header {
 
   .site-infos {
     display: flex;
-    align-items: center;
     text-decoration: none;
+    justify-content: center;
     .site-title {
       margin-left: 1rem;
       font-size: 1.7rem;
-      color: #d94f5c;
+      color: #757575;
       font-weight: bolder;
+      text-align: center;
     }
   }
   nav {
@@ -33,12 +34,13 @@ header {
 
       a {
         font-size: 17px;
-        color: #777;
+        color: #d94f5c;
+        font-weight: bold;
         text-decoration: none;
         transition: all 0.45s;
       }
       &:hover a {
-        color: #d94f5c;
+        color: #d32f2f;
       }
 
       &:not(:last-child) {
@@ -55,7 +57,6 @@ header {
     flex-direction: column;
     align-content: center;
     header nav .menu {
-      /* When on medium sized screens, we center it by evenly distributing empty space around items */
       flex-direction: column;
       align-content: center;
     }

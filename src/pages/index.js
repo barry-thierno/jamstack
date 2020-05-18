@@ -17,29 +17,31 @@ const IndexPage = () => {
             price
             title
             quantity
+            createdAt(formatString: "DD MMMM YYYY", locale: "fr")
             id
             description
+            image {
+              fixed(width: 400, height: 400) {
+                width
+                height
+                src
+              }
+            }
           }
         }
       }
     }
   `)
-  console.log(products)
-
   return (
     <Layout>
-      <Layout>
-        <Seo title="Home" />
-        <div className="home-container">
-          {/* <Separator title="Les dernières publications" /> */}
-          <section className="last-publications">
-            {products.map(({ node }, index) => (
-              <Product {...node} isMainPublication={index === 0} />
-            ))}
-            test
-          </section>
-        </div>
-      </Layout>
+      <Seo title="Home" />
+      <div className="home-container">
+        <section className="products">
+          {products.map(({ node }, index) => (
+            <Product {...node} isMainPublication={index === 0} />
+          ))}
+        </section>
+      </div>
     </Layout>
   )
 }

@@ -1,0 +1,28 @@
+.presentation {
+  columns: 3;
+  column-gap: 2.5rem;
+  width: 75%;
+  margin: auto;
+  margin-top: 2rem;
+  background-color: #ffcdd2;
+  border-radius: 1.1rem;
+  padding: 2rem;
+  text-align: justify;
+  h3 {
+    color: #d94f5c;
+    border-bottom: 1px #d32f2f solid;
+  }
+  p {
+    font-size: 0.9rem;
+    line-height: 1.7rem;
+    color: #212121;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .presentation {
+    columns: 1;
+    width: 90%;
+    margin-top: 2rem;
+  }
+}
