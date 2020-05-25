@@ -24,6 +24,7 @@
     "react-helmet": "^6.0.0"
   },
   "devDependencies": {
+    "env-cmd": "^10.0.1",
     "prettier": "2.0.5"
   },
   "keywords": [
@@ -31,8 +32,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "env-cmd -f .env.production gatsby build",
+    "develop": "env-cmd -f .env.developement gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
