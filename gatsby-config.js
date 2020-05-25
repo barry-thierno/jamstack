@@ -27,6 +27,26 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `material icons`,
+          `Varela Round:300,400,400,700`, // you can also specify font weights and styles
+        ],
+        display: "swap",
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `se14l8iz29o6`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: `MnsiLEcy8dbNjI2oxZBpWpLM8kv9jv7sJUrMNjrTR8Q`,
+      },
+    },
+    `gatsby-transformer-remark`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
